@@ -10,7 +10,6 @@
 		5235A4CE1B599B6F0034FA7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4CD1B599B6F0034FA7B /* main.m */; };
 		5235A4D11B599B6F0034FA7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4D01B599B6F0034FA7B /* AppDelegate.m */; };
 		5235A4D41B599B6F0034FA7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4D31B599B6F0034FA7B /* ViewController.m */; };
-		5235A4D71B599B6F0034FA7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5235A4D51B599B6F0034FA7B /* Main.storyboard */; };
 		5235A4D91B599B6F0034FA7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5235A4D81B599B6F0034FA7B /* Images.xcassets */; };
 		5235A4DC1B599B6F0034FA7B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5235A4DA1B599B6F0034FA7B /* LaunchScreen.xib */; };
 		5235A4E81B599B6F0034FA7B /* Bloc_BrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4E71B599B6F0034FA7B /* Bloc_BrowserTests.m */; };
@@ -34,7 +33,6 @@
 		5235A4D01B599B6F0034FA7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5235A4D21B599B6F0034FA7B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5235A4D31B599B6F0034FA7B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5235A4D61B599B6F0034FA7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5235A4D81B599B6F0034FA7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5235A4DB1B599B6F0034FA7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5235A4E11B599B6F0034FA7B /* Bloc BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bloc BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 				5235A4D01B599B6F0034FA7B /* AppDelegate.m */,
 				5235A4D21B599B6F0034FA7B /* ViewController.h */,
 				5235A4D31B599B6F0034FA7B /* ViewController.m */,
-				5235A4D51B599B6F0034FA7B /* Main.storyboard */,
 				5235A4D81B599B6F0034FA7B /* Images.xcassets */,
 				5235A4DA1B599B6F0034FA7B /* LaunchScreen.xib */,
 				5235A4CB1B599B6F0034FA7B /* Supporting Files */,
@@ -199,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5235A4D71B599B6F0034FA7B /* Main.storyboard in Resources */,
 				5235A4DC1B599B6F0034FA7B /* LaunchScreen.xib in Resources */,
 				5235A4D91B599B6F0034FA7B /* Images.xcassets in Resources */,
 			);
@@ -244,14 +240,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5235A4D51B599B6F0034FA7B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5235A4D61B599B6F0034FA7B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5235A4DA1B599B6F0034FA7B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -350,6 +338,7 @@
 				INFOPLIST_FILE = "Bloc Browser/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -360,6 +349,7 @@
 				INFOPLIST_FILE = "Bloc Browser/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -378,6 +368,7 @@
 				INFOPLIST_FILE = "Bloc BrowserTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bloc Browser.app/Bloc Browser";
 			};
 			name = Debug;
@@ -393,6 +384,7 @@
 				INFOPLIST_FILE = "Bloc BrowserTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bloc Browser.app/Bloc Browser";
 			};
 			name = Release;
@@ -416,6 +408,7 @@
 				5235A4ED1B599B6F0034FA7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5235A4EE1B599B6F0034FA7B /* Build configuration list for PBXNativeTarget "Bloc BrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +417,7 @@
 				5235A4F01B599B6F0034FA7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
