@@ -37,7 +37,7 @@
     self.textField.returnKeyType = UIReturnKeyDone;
     self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.textField.placeholder = NSLocalizedString(@"Website URL", @"Placeholder text for web browser URL field");
+    self.textField.placeholder = NSLocalizedString(@"Website URL, or Google Search", @"Placeholder text for web browser URL field");
     self.textField.backgroundColor = [UIColor colorWithWhite:220/255.0f alpha:1];
     self.textField.delegate = self;
     
@@ -114,13 +114,7 @@
     
     NSString *URLString = textField.text;
     
-    NSURL *URL = [NSURL URLWithString:URLString];
-    
-    // Check URL
-    if(!URL.scheme){
-        // The user didn't type http:// or https://
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", URLString]];
-    }
+    NSURL *URL = [self determineURL: URLString];
     
     if (URL) {
         NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -128,6 +122,27 @@
     }
     
     return NO;
+}
+
+- (NSURL *)determineURL: (NSString *)URLString{
+    
+    NSURL *URL = [NSURL URLWithString:URLString];
+    
+    // Check URL
+    if(!URL.scheme){
+        // The user didn't type http:// or https://
+        if ([URLString rangeOfString:@" "].location != NSNotFound){
+            // The user typed one or more spaces. Do Google search
+            NSString *stringSpacesToPlus = [URLString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+            URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com/search?q=%@", stringSpacesToPlus]];
+        }
+        else{
+            // Otherwise, just append protocol and go there
+            URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", URLString]];
+        }
+    }
+    
+    return URL;
 }
 
 
