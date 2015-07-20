@@ -13,6 +13,7 @@
 		5235A4D91B599B6F0034FA7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5235A4D81B599B6F0034FA7B /* Images.xcassets */; };
 		5235A4DC1B599B6F0034FA7B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5235A4DA1B599B6F0034FA7B /* LaunchScreen.xib */; };
 		5235A4E81B599B6F0034FA7B /* Bloc_BrowserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4E71B599B6F0034FA7B /* Bloc_BrowserTests.m */; };
+		5235A4F31B5CA2750034FA7B /* AwesomeFloatingToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A4F21B5CA2750034FA7B /* AwesomeFloatingToolbar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		5235A4E11B599B6F0034FA7B /* Bloc BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bloc BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5235A4E61B599B6F0034FA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5235A4E71B599B6F0034FA7B /* Bloc_BrowserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bloc_BrowserTests.m; sourceTree = "<group>"; };
+		5235A4F11B5CA2750034FA7B /* AwesomeFloatingToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeFloatingToolbar.h; sourceTree = "<group>"; };
+		5235A4F21B5CA2750034FA7B /* AwesomeFloatingToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeFloatingToolbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				5235A4D81B599B6F0034FA7B /* Images.xcassets */,
 				5235A4DA1B599B6F0034FA7B /* LaunchScreen.xib */,
 				5235A4CB1B599B6F0034FA7B /* Supporting Files */,
+				5235A4F11B5CA2750034FA7B /* AwesomeFloatingToolbar.h */,
+				5235A4F21B5CA2750034FA7B /* AwesomeFloatingToolbar.m */,
 			);
 			path = "Bloc Browser";
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				5235A4D41B599B6F0034FA7B /* ViewController.m in Sources */,
 				5235A4D11B599B6F0034FA7B /* AppDelegate.m in Sources */,
 				5235A4CE1B599B6F0034FA7B /* main.m in Sources */,
+				5235A4F31B5CA2750034FA7B /* AwesomeFloatingToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
