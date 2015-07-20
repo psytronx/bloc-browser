@@ -169,6 +169,18 @@
     }
 }
 
+- (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint)offset {
+    CGPoint startingOrigin = toolbar.frame.origin;
+    CGPoint newOrigin = CGPointMake(startingOrigin.x + offset.x, startingOrigin.y + offset.y);
+    CGRect potentialNewFrame = CGRectMake(newOrigin.x, newOrigin.y, CGRectGetWidth(toolbar.frame), CGRectGetHeight(toolbar.frame));
+
+    // Ensure that toolbar stays completely inside the container view
+    if (CGRectContainsRect(self.view.bounds, potentialNewFrame)){
+        toolbar.frame = potentialNewFrame;
+    }
+
+}
+
 #pragma mark - Miscellaneous
 
 - (void) updateButtonsAndTitle {
