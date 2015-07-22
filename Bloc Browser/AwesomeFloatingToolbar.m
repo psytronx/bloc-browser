@@ -16,6 +16,10 @@
 @property (nonatomic, weak) UILabel *currentLabel;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+@property (nonatomic, strong) UIPinchGestureRecognizer *pinchGesture;
+@property (assign) CGFloat lastScale;
+@property (assign) CGPoint lastPoint;
+@property (assign) CGRect origBounds;
 
 @end
 
@@ -75,6 +79,8 @@
         [self addGestureRecognizer:self.tapGesture];
         self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panFired:)];
         [self addGestureRecognizer:self.panGesture];
+        self.pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchFired:)];
+        [self addGestureRecognizer:self.pinchGesture];
     }
     
     return self;
@@ -141,16 +147,68 @@
     }
 }
 
-- (UILabel *) labelFromTouches:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInView:self];
-    UIView *subview = [self hitTest:location withEvent:event];
+//- (void) pinchFired:(UIPinchGestureRecognizer *)recognizer {
+//    
+//    CGPoint touchLocation = [recognizer locationInView:self];
+//    
+//    switch (recognizer.state) {
+//        case UIGestureRecognizerStateBegan: {
+//            NSLog(@"pinch began; touchLocation = (%.2f, %.2f)", touchLocation.x, touchLocation.y);
+//            NSLog(@"pinch began; scale = %.2f", recognizer.scale);
+//            break;
+//        }
+//            
+//        case UIGestureRecognizerStateChanged: {
+//            NSLog(@"pinch changed; touchLocation = (%.2f, %.2f)", touchLocation.x, touchLocation.y);
+//            NSLog(@"pinch began; scale = %.2f", recognizer.scale);
+//            break;
+//        }
+//            
+//        case UIGestureRecognizerStateEnded: {
+//            NSLog(@"pinch ended; touchLocation = (%.2f, %.2f)", touchLocation.x, touchLocation.y);
+//            NSLog(@"pinch began; scale = %.2f", recognizer.scale);
+//            break;
+//        }
+//            
+//        default:
+//            break;
+//    }
+//}
+
+- (void) pinchFired:(UIPinchGestureRecognizer *)recognizer {
     
-    if ([subview isKindOfClass:[UILabel class]]) {
-        return (UILabel *)subview;
-    } else {
-        return nil;
-    }
+//    if ([recognizer numberOfTouches] < 2) {
+//        return;
+//    }
+//    
+//    switch (recognizer.state) {
+//        case UIGestureRecognizerStateBegan: {
+//            self.origBounds = self.bounds;
+////            if ([self.delegate respondsToSelector:@selector(floatingToolbar:didPinchWithScale:originalBounds:)]){
+////                [self.delegate floatingToolbar:self didPinchWithScale:recognizer.scale originalBounds:self.origBounds];
+////            }
+//            break;
+//        }
+//            
+//        case UIGestureRecognizerStateChanged: {
+//            if ([self.delegate respondsToSelector:@selector(floatingToolbar:didPinchWithScale:originalBounds:)]){
+//                [self.delegate floatingToolbar:self didPinchWithScale:recognizer.scale originalBounds:self.origBounds];
+//            }
+//            break;
+//        }
+//            
+//        case UIGestureRecognizerStateEnded: {
+            if ([self.delegate respondsToSelector:@selector(didPinchWithScale:)]){
+                [self.delegate didPinchWithScale:recognizer];
+            }
+//            self.origBounds = self.bounds;
+//            break;
+//        }
+//            
+//        default:
+//            break;
+//    }
+    
 }
 
 #pragma mark - Button Enabling

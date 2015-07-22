@@ -65,7 +65,7 @@
     // Activity Indicator
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.activityIndicator];
-
+    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
 }
 
 - (void) viewWillLayoutSubviews {
@@ -79,7 +79,7 @@
     // Now, assign the frames
     self.textField.frame = CGRectMake(0, 0, width, itemHeight);
     self.webView.frame = CGRectMake(0, CGRectGetMaxY(self.textField.frame), width, browserHeight);
-    self.awesomeToolbar.frame = CGRectMake(20, 100, 280, 60);
+    
 }
 
 #pragma mark - UITextFieldDelegate
@@ -179,6 +179,23 @@
         toolbar.frame = potentialNewFrame;
     }
 
+}
+
+- (void) didPinchWithScale:(UIPinchGestureRecognizer*)recognizer {
+    CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
+    self.awesomeToolbar.transform = transform;
+    
+//    CGRect potentialNewBounds = CGRectMake(0,
+//                                          0,
+//                                          CGRectGetWidth(orignalBounds) * scale,
+//                                          CGRectGetHeight(orignalBounds) * scale);
+//    
+//    // Ensure that toolbar stays completely inside the container view
+////    if (CGRectContainsRect(self.view.bounds, potentialNewBounds)){
+//        toolbar.bounds = potentialNewBounds;
+//        [toolbar setNeedsDisplay];
+////    }
+    
 }
 
 #pragma mark - Miscellaneous
