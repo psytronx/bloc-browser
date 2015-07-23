@@ -170,6 +170,7 @@
 }
 
 - (void) floatingToolbar:(AwesomeFloatingToolbar *)toolbar didTryToPanWithOffset:(CGPoint)offset {
+    
     CGPoint startingOrigin = toolbar.frame.origin;
     CGPoint newOrigin = CGPointMake(startingOrigin.x + offset.x, startingOrigin.y + offset.y);
     CGRect potentialNewFrame = CGRectMake(newOrigin.x, newOrigin.y, CGRectGetWidth(toolbar.frame), CGRectGetHeight(toolbar.frame));
@@ -181,20 +182,10 @@
 
 }
 
-- (void) didPinchWithScale:(UIPinchGestureRecognizer*)recognizer {
+- (void) didPinchWithScale:(UIPinchGestureRecognizer *)recognizer {
+    
     CGAffineTransform transform = CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
     self.awesomeToolbar.transform = transform;
-    
-//    CGRect potentialNewBounds = CGRectMake(0,
-//                                          0,
-//                                          CGRectGetWidth(orignalBounds) * scale,
-//                                          CGRectGetHeight(orignalBounds) * scale);
-//    
-//    // Ensure that toolbar stays completely inside the container view
-////    if (CGRectContainsRect(self.view.bounds, potentialNewBounds)){
-//        toolbar.bounds = potentialNewBounds;
-//        [toolbar setNeedsDisplay];
-////    }
     
 }
 
